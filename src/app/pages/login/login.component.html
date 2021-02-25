@@ -1,0 +1,37 @@
+<div class="background">
+  <mat-card class="login-card">
+    <mat-card-title>
+      Sign In
+    </mat-card-title>
+    <mat-card-content class="mg-t-25">
+      <form>
+        <div>
+          <mat-form-field color="primary" class="full-width">
+            <mat-label>email</mat-label>
+            <input matInput [(ngModel)]="this.email" required name="email" type="email">
+          </mat-form-field>
+        </div>
+  
+        <div>
+          <mat-form-field color="primary" class="full-width">
+            <mat-label>password</mat-label>
+            <input matInput [(ngModel)]="this.password" required minlength="8" name="password" type="password">
+            <mat-hint>At least 8 characters, 1 Letter and 1 digit.</mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="grid-left-right full-width">
+        <button mat-button color="accent" (click)="this.login()">SIGN IN</button>
+        <button mat-button (click)="this.router.navigate(['/forgot-password'])">Forgot Password</button>
+      </div>
+
+      <div class="grid-left-right full-width">
+        <button mat-button (click)="this.router.navigate(['/register'])">OR SIGN UP FOR FREE</button>
+        <span></span>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

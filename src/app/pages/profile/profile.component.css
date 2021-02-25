@@ -1,0 +1,15 @@
+.profile-card {
+  width: 560px;
+  margin: 120px auto;
+}
+
+.grid-row-gap {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  row-gap: 0.5rem;
+}
+
+.grid-row-gap>* {
+  width: 100%;
+}

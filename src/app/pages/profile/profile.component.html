@@ -1,0 +1,34 @@
+<mat-card *ngIf="this.user" class="profile-card">
+  <mat-card-title>
+    You may edit your profile here
+  </mat-card-title>
+  <mat-card-content class="mg-t-25">
+    <form class="grid-row-gap">
+      <mat-form-field color="primary">
+        <mat-label>email</mat-label>
+        <input matInput [(ngModel)]="this.user.email" required name="email" type="email">
+        <mat-hint>You may edit your email here</mat-hint>
+      </mat-form-field>
+
+      <div>
+        <div class="grid-1-1">
+          <mat-form-field color="primary">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="this.user.firstName" required name="firstName" type="text">
+          </mat-form-field>
+
+          <mat-form-field color="primary">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="this.user.lastName" required name="lastName" type="text">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="grid-left-right full-width">
+      <button mat-button color="accent" (click)="this.updateProfile()">SAVE</button>
+      <button mat-button routerLink="/">GO BACK</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

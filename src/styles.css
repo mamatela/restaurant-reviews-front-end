@@ -1,1 +1,602 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+/* Position */
+
+.fixed {
+  position: fixed;
+}
+
+.fixed-top-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.spinner-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+/* Fix mat-checkboxes that are pushed to the top */
+
+.mat-checkbox.mat-accent .mat-checkbox-layout {
+  margin: auto;
+}
+
+/* hide using opacity */
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-10 {
+  opacity: 1;
+}
+
+.opacity-8 {
+  opacity: 0.80;
+}
+
+.opacity-7 {
+  opacity: 0.70;
+}
+
+.opacity-6 {
+  opacity: 0.60;
+}
+
+/* Paint on hover */
+
+.hover-area>.hover-paint, .hover-area>*>.hover-paint, .hover-area>*>*>.hover-paint, .hover-area>*>*>*>.hover-paint, .hover-area>*>*>*>*>.hover-paint {
+  opacity: 0;
+}
+
+.hover-area:hover>.hover-paint, .hover-area:hover>*>.hover-paint, .hover-area:hover>*>*>.hover-paint, .hover-area:hover>*>*>*>.hover-paint, .hover-area:hover>*>*>*>*>.hover-paint {
+  opacity: 1;
+}
+
+/* Appear on hover */
+
+.hover-area>.hover-appear, .hover-area>*>.hover-appear, .hover-area>*>*>.hover-appear, .hover-area>*>*>*>.hover-appear, .hover-area>*>*>*>*>.hover-appear {
+  display: none;
+}
+
+.hover-area:hover>.hover-appear, .hover-area:hover>*>.hover-appear, .hover-area:hover>*>*>.hover-appear, .hover-area:hover>*>*>*>.hover-appear, .hover-area:hover>*>*>*>*>.hover-appear {
+  display: initial;
+}
+
+/* Fade (decrease opacity) on hover */
+
+.hover-area:hover>.hover-fade, .hover-area:hover>*>.hover-fade, .hover-area:hover>*>*>.hover-fade, .hover-area:hover>*>*>*>.hover-fade, .hover-area:hover>*>*>*>*>.hover-fade {
+  opacity: 0.6;
+}
+
+/* Bolden on hover */
+
+.hover-area:hover>.hover-bold, .hover-area:hover>*>.hover-bold, .hover-area:hover>*>*>.hover-bold, .hover-area:hover>*>*>*>.hover-bold, .hover-area:hover>*>*>*>*>.hover-bold {
+  font-weight: bold;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+/* Make an element full width */
+
+.full-width {
+  width: 100%;
+}
+
+/* Display */
+
+.disp-inline {
+  display: inline;
+}
+
+.disp-block {
+  display: block;
+}
+
+/* Vertical centering for mat icons (they have this problem) */
+
+mat-icon.center-top {
+  vertical-align: top;
+}
+
+mat-icon.center-middle {
+  vertical-align: middle;
+}
+
+mat-icon.large {
+  font-size: 32px;
+}
+
+/* alignments */
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+/* Grid */
+
+grid, .grid {
+  display: grid;
+}
+
+.grid-one-row {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.grid-left-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-left-right > *:first-child {
+  justify-self: start;
+}
+
+.grid-left-right > *:last-child {
+  justify-self: end;
+}
+
+.grid-auto-auto {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 0.5rem;
+  grid-auto-rows: auto;
+}
+
+.grid-1-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  grid-auto-rows: auto;
+}
+
+.justify-start {
+  justify-self: start;
+}
+
+.justify-center {
+  justify-self: center;
+}
+
+.justify-end {
+  justify-self: end;
+}
+
+.align-start {
+  align-self: start;
+}
+
+.align-center {
+  align-self: center;
+}
+
+.align-end {
+  align-self: end;
+}
+
+/* padding */
+
+.pd-5 {
+  padding: 5px;
+}
+
+.pd-10 {
+  padding: 10px;
+}
+
+.pd-15 {
+  padding: 15px;
+}
+
+.pd-t-5 {
+  padding-top: 5px;
+}
+
+.pd-t-10 {
+  padding-top: 10px;
+}
+
+.pd-t-15 {
+  padding-top: 15px;
+}
+
+.pd-r-5 {
+  padding-right: 5px;
+}
+
+.pd-r-10 {
+  padding-right: 10px;
+}
+
+.pd-r-15 {
+  padding-right: 15px;
+}
+
+.pd-b-5 {
+  padding-bottom: 5px;
+}
+
+.pd-b-10 {
+  padding-bottom: 10px;
+}
+
+.pd-b-15 {
+  padding-bottom: 15px;
+}
+
+.pd-l-5 {
+  padding-left: 5px;
+}
+
+.pd-l-10 {
+  padding-left: 10px;
+}
+
+.pd-l-15 {
+  padding-left: 15px;
+}
+
+/* margins */
+
+.mg-auto {
+  margin: auto;
+}
+
+.mg-1 {
+  margin: 1px;
+}
+
+.mg-2 {
+  margin: 2px;
+}
+
+.mg-5 {
+  margin: 5px;
+}
+
+.mg-10 {
+  margin: 10px;
+}
+
+.mg-15 {
+  margin: 15px;
+}
+
+.mg-25 {
+  margin: 25px;
+}
+
+/* Margin Top */
+
+.mg-t-1 {
+  margin-top: 1px;
+}
+
+.mg-t-2 {
+  margin-top: 2px;
+}
+
+.mg-t-5 {
+  margin-top: 5px;
+}
+
+.mg-t-10 {
+  margin-top: 10px;
+}
+
+.mg-t-15 {
+  margin-top: 15px;
+}
+
+.mg-t-25 {
+  margin-top: 25px;
+}
+
+/* Margin Right */
+
+.mg-r-1 {
+  margin-right: 1px;
+}
+
+.mg-r-2 {
+  margin-right: 2px;
+}
+
+.mg-r-5 {
+  margin-right: 5px;
+}
+
+.mg-r-10 {
+  margin-right: 10px;
+}
+
+.mg-r-15 {
+  margin-right: 15px;
+}
+
+.mg-r-25 {
+  margin-right: 25px;
+}
+
+/* Margin Bottom */
+
+.mg-b-1 {
+  margin-bottom: 1px;
+}
+
+.mg-b-2 {
+  margin-bottom: 2px;
+}
+
+.mg-b-5 {
+  margin-bottom: 5px;
+}
+
+.mg-b-10 {
+  margin-bottom: 10px;
+}
+
+.mg-b-15 {
+  margin-bottom: 15px;
+}
+
+.mg-b-25 {
+  margin-bottom: 25px;
+}
+
+/* Margin Left */
+
+.mg-l-1 {
+  margin-left: 1px;
+}
+
+.mg-l-2 {
+  margin-left: 2px;
+}
+
+.mg-l-5 {
+  margin-left: 5px;
+}
+
+.mg-l-10 {
+  margin-left: 10px;
+}
+
+.mg-l-15 {
+  margin-left: 15px;
+}
+
+.mg-l-25 {
+  margin-left: 25px;
+}
+
+/* negative margins */
+
+.mg--1 {
+  margin: -1px;
+}
+
+.mg--2 {
+  margin: -2px;
+}
+
+.mg--5 {
+  margin: -5px;
+}
+
+.mg--10 {
+  margin: -10px;
+}
+
+.mg--15 {
+  margin: -15px;
+}
+
+.mg--25 {
+  margin: -25px;
+}
+
+/* Margin Top */
+
+.mg-t--1 {
+  margin-top: -1px;
+}
+
+.mg-t--2 {
+  margin-top: -2px;
+}
+
+.mg-t--5 {
+  margin-top: -5px;
+}
+
+.mg-t--10 {
+  margin-top: -10px;
+}
+
+.mg-t--15 {
+  margin-top: -15px;
+}
+
+.mg-t--25 {
+  margin-top: -25px;
+}
+
+/* Margin Right */
+
+.mg-r--1 {
+  margin-right: -1px;
+}
+
+.mg-r--2 {
+  margin-right: -2px;
+}
+
+.mg-r--5 {
+  margin-right: -5px;
+}
+
+.mg-r--10 {
+  margin-right: -10px;
+}
+
+.mg-r--15 {
+  margin-right: -15px;
+}
+
+.mg-r--25 {
+  margin-right: -25px;
+}
+
+/* Margin Bottom */
+
+.mg-b--1 {
+  margin-bottom: -1px;
+}
+
+.mg-b--2 {
+  margin-bottom: -2px;
+}
+
+.mg-b--5 {
+  margin-bottom: -5px;
+}
+
+.mg-b--10 {
+  margin-bottom: -10px;
+}
+
+.mg-b--15 {
+  margin-bottom: -15px;
+}
+
+.mg-b--25 {
+  margin-bottom: -25px;
+}
+
+/* Margin Left */
+
+.mg-l--1 {
+  margin-left: -1px;
+}
+
+.mg-l--2 {
+  margin-left: -2px;
+}
+
+.mg-l--5 {
+  margin-left: -5px;
+}
+
+.mg-l--10 {
+  margin-left: -10px;
+}
+
+.mg-l--15 {
+  margin-left: -15px;
+}
+
+.mg-l--25 {
+  margin-left: -25px;
+}
+
+/* fonts */
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.font-11 {
+  font-size: 11px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-26 {
+  font-size: 26px;
+}
+
+.font-28 {
+  font-size: 28px;
+}
+
+.font-32 {
+  font-size: 32px;
+}
+
+.font-36 {
+  font-size: 36px;
+}

@@ -1,0 +1,30 @@
+
+/* NOTIFICATIONS PANEL */
+/* Make the notification menu panel wider */
+::ng-deep div.mat-menu-panel {
+  max-width: 540px;
+  /* width: 540px; */
+}
+
+.grid-auto-auto {
+  display: grid;
+  grid-template-columns: 90px auto;
+  column-gap: 1.5rem;
+  grid-auto-rows: auto;
+}
+
+.notifications-menu-item {
+  white-space: initial;
+  line-height: initial;
+  height: initial;
+  /* max-width: 480px; */
+  /* width: 540px; */
+  margin: 0;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.notifications-menu-item-fab {
+  white-space: initial;
+}
+/* END OF NOTIFICATIONS PANEL */

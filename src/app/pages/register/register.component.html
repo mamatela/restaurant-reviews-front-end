@@ -1,0 +1,56 @@
+<div class="background">
+  <mat-card class="login-card">
+    <mat-card-title>
+      Sign Up
+    </mat-card-title>
+    <mat-card-content class="mg-t-25">
+      <div>
+        <mat-form-field color="primary" class="full-width">
+          <mat-label>email</mat-label>
+          <input matInput [(ngModel)]="this.email" required name="email" type="email">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <div class="grid-1-1">
+          <mat-form-field color="primary">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="this.firstName" required name="firstName" type="text">
+          </mat-form-field>
+
+          <mat-form-field color="primary">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="this.lastName" required name="lastName" type="text">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <mat-form-field color="primary" class="full-width">
+          <mat-label>password</mat-label>
+          <input matInput [(ngModel)]="this.password" required minlength="8" name="password" type="password">
+          <mat-hint>At least 8 characters, 1 Letter and 1 digit.</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="mg-t-15">
+        <mat-checkbox [(ngModel)]="this.isOwner">
+          I am a restaurant owner
+        </mat-checkbox>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="grid-left-right full-width">
+        <button mat-button color="accent" (click)="this.register()">SIGN UP {{this.isOwner ? 'AS A RESTAURANT OWNER' :
+          ''}}</button>
+        <span></span>
+      </div>
+
+      <div class="grid-left-right full-width">
+        <button mat-button (click)="this.router.navigate(['/login'])">Already a member? Sign in</button>
+        <span></span>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
