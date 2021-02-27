@@ -39,6 +39,14 @@ export class AuthService {
     await this.http.post<AuthResponse>(`${environment.apiBaseUrl}/auth/forgot-password`, { email }).toPromise();
   }
 
+  async resetPassword(password: string, token: string) {
+    let options = {
+      params: { token }
+    }
+    await this.http.post<AuthResponse>(`${environment.apiBaseUrl}/auth/reset-password`, { password }, options).toPromise();
+  }
+
+
   /**
    * Attempts to retrieve and save new access token and user data using existing saved refresh_token. 
    * Will return authData if success.
@@ -53,7 +61,6 @@ export class AuthService {
     let authData;
     try {
       authData = await this.http.post<AuthResponse>(`${environment.apiBaseUrl}/auth/refresh-tokens`, { refreshToken: token }).toPromise();
-      // console.log(authData);
     }
     catch (err) {
       return;

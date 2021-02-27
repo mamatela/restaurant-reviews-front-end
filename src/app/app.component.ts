@@ -14,14 +14,17 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-  ){}
-  
+  ) { }
+
   async ngOnInit() {
     let authData: AuthResponse = await this.authService.autoAuthUsingRefreshToken();
     if (!authData) {
-      if (!['/login', 'register', 'forgot-password'].indexOf(this.router.url)) {
-        this.router.navigate(['login']);
-      }
+      setTimeout(() => { // gotta throw it to the end of the event queue for router to get the url right;
+        if (!~['/login', '/register', '/forgot-password', '/reset-password'].indexOf(this.router.url)) {
+          this.router.navigate(['/login']);
+        }
+      });
     }
+
   }
 }

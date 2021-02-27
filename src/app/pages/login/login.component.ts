@@ -10,8 +10,10 @@ import extractMessage from 'src/app/utils/extract-error-message';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   email: string;
   password: string;
+  hide = true;
   loginLoading = false;
 
   constructor(
@@ -24,6 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
+    if (!(this.email && this.password && this.password.length > 7)) {
+      return;
+    }
     this.loginLoading = true;
     try {
       await this.authService.login(this.email, this.password);

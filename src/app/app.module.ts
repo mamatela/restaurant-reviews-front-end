@@ -19,6 +19,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MainComponent } from './main/main.component';
@@ -29,6 +32,9 @@ import { MomentHumanizePipe } from './pipes/moment.pipe';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { AgmCoreModule } from '@agm/core';
+import { RestaurantDetailsComponent } from './pages/restaurant-details/restaurant-details.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,9 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     MomentHumanizePipe,
     ProfileComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    RestaurantDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +70,12 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     MatInputModule,
     MatTabsModule,
     MatCheckboxModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDntwz84dctdCtb4l0W9xJhUsIuzNcPh1o'
+    }),
+    MatButtonToggleModule,
+    MatSliderModule,
+    MatChipsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

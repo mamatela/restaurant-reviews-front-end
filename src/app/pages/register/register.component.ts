@@ -12,6 +12,7 @@ import extractMessage from 'src/app/utils/extract-error-message';
 export class RegisterComponent implements OnInit {
   email: string;
   password: string;
+  hide = true;
   firstName: string;
   lastName: string;
   isOwner = false;
@@ -27,6 +28,9 @@ export class RegisterComponent implements OnInit {
   }
 
   async register() {
+    if (!(this.email && this.password && this.password.length > 7 && this.firstName && this.lastName)) {
+      return;
+    }
     this.registerLoading = true;
     try {
       await this.authService.register({

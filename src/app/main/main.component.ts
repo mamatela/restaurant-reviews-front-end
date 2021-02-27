@@ -41,6 +41,8 @@ export class MainComponent implements OnInit {
         this.user = null;
       }
     });
+
+
   }
 
   async getNotifs(setSeen = false) {

@@ -45,6 +45,11 @@ body {
   margin: auto;
 }
 
+/* Make text card content a little bigger */
+.mat-card-content, .mat-card-content {
+  font-size: 16px;
+}
+
 /* hide using opacity */
 
 .opacity-0 {
@@ -165,13 +170,14 @@ grid, .grid {
 .grid-left-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  row-gap: 0.25rem;
 }
 
-.grid-left-right > *:first-child {
+.grid-left-right > *:nth-last-child(odd) {
   justify-self: start;
 }
 
-.grid-left-right > *:last-child {
+.grid-left-right > *:nth-last-child(even) {
   justify-self: end;
 }
 

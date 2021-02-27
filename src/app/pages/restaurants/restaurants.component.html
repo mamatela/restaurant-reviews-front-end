@@ -1,1 +1,105 @@
-<p>restaurants works!</p>
+<div class="search-and-filter-grid">
+  <form class="justify-start" (submit)="this.refreshRestaurants()">
+    <mat-form-field color="primary" class="mg-r-10 search-box">
+      <mat-label>Search</mat-label>
+      <input matInput [ngModel]="this.searchString" (ngModelChange)="onSearchBoxValueChange($event)" type="text"
+        name="searchString" autocomplete="off">
+      <button mat-button *ngIf="this.searchString" matSuffix mat-icon-button (click)="onSearchBoxValueChange('')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <span class="rating-filter-wrapper mg-l-10">
+      <button mat-icon-button (click)="this.ratingFilterValue = 1;">
+        <mat-icon class="center-bottom">{{ratingFilterValue > 0 ? 'star' : 'star_outline'}}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="this.ratingFilterValue = 2">
+        <mat-icon class="center-bottom">{{ratingFilterValue > 1 ? 'star' : 'star_outline'}}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="this.ratingFilterValue = 3">
+        <mat-icon class="center-bottom">{{ratingFilterValue > 2 ? 'star' : 'star_outline'}}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="this.ratingFilterValue = 4">
+        <mat-icon class="center-bottom">{{ratingFilterValue > 3 ? 'star' : 'star_outline'}}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="this.ratingFilterValue = 5">
+        <mat-icon class="center-bottom">{{ratingFilterValue > 4 ? 'star' : 'star_outline'}}</mat-icon>
+      </button>
+    </span>
+
+    <div class="mg-b-10">
+      <mat-chip-list>
+        <mat-chip removable="true" *ngIf="this.searchString"
+          (removed)="this.searchString=null; this.refreshRestaurants()">
+          "{{this.searchString}}"
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <mat-chip removable="true" *ngIf="this.ratingFilterValue"
+          (removed)="this.ratingFilterValue=null; this.refreshRestaurants()">
+          {{this.ratingFilterValue}}-star
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </form>
+
+  <div class="justify-end mg-t-15">
+    <!-- <mat-button-toggle-group [(ngModel)]="sort">
+      <mat-button-toggle value="rating" (click)="this.refreshRestaurants()">Top Rated First</mat-button-toggle>
+      <mat-button-toggle value="distance" (click)="this.refreshRestaurants()">Nearest First</mat-button-toggle>
+    </mat-button-toggle-group> -->
+    <button mat-button (click)="sort='rating'; this.refreshRestaurants()" [disabled]="sort=='rating'">
+      Top Rated
+    </button>
+    <button mat-button (click)="sort='distance'; this.refreshRestaurants()" [disabled]="sort=='distance'">
+      Nearest
+    </button>
+  </div>
+</div>
+
+
+<div class="restaurant-grid">
+  <mat-card *ngFor="let r of this.restaurantsResult && this.restaurantsResult.items"
+    class="cursor-pointer hover-area relative" (click)="this.openDetailsPage(r)">
+    <div class="absolute" style="top: 4px; right: 4px;">
+      <span *ngIf="this.user.role === 'owner' || this.user.role === 'admin'" class="hover-appear">
+        <button mat-icon-button color="accent" (click)="$event.stopPropagation(); this.deleteRestaurant(r);">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </span>
+    </div>
+    <!-- <img src="https://picsum.photos/320/210"> -->
+    <img src="{{r.picUrl}}">
+    <mat-card-title>
+      <div class="grid-1-1">
+        <span class="justify-start">{{r.name.toUpperCase()}}</span>
+        <span class="justify-end" [matTooltip]="r.avgRating">
+          <mat-icon color="accent" *ngFor="let star of r.starArray" class="center-top">
+            {{star === 2 ? 'star' : (star === 1 ? 'star_half' : 'star_outline')}}
+          </mat-icon>
+        </span>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <div class="grid-1-1">
+        <span class="justify-start"></span>
+        <span class="justify-end align-end">
+          {{r.distance}} kms
+        </span>
+      </div>
+    </mat-card-subtitle>
+
+
+  </mat-card>
+</div>
+
+
+<div *ngIf="this.restaurantsNotFound" class="text-align-center mg-t-25 font-20">
+  Could not find any restaurants. Try relaxing some of the filters.
+</div>
+
+
+
+<agm-map [latitude]='lat' [longitude]='long'>
+  <agm-marker [latitude]="lat" [longitude]="long">
+  </agm-marker>
+</agm-map>

@@ -26,9 +26,14 @@ export class ForgotPasswordComponent implements OnInit {
   async sendLink() {
     if (this.sentOnce) {
       this.sentOnce = false;
-      this.email = null;
+      // this.email = null;
       return;
     }
+
+    if (!this.email) {
+      return;
+    }
+
     this.sendLinkLoading = true;
     try {
       await this.authService.forgotPassword(this.email);

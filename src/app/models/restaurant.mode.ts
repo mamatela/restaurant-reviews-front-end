@@ -8,4 +8,6 @@ export class Restaurant {
   avgRating?: number;
   reviewCount?: number;
   pendingReviewCount?: number;
+  distance?: number;
+  starArray: Array<number>
 }
